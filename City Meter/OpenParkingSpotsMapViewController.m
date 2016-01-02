@@ -7,8 +7,11 @@
 //
 
 #import "OpenParkingSpotsMapViewController.h"
+#import <MapKit/MapKit.h>
 
-@interface OpenParkingSpotsMapViewController ()
+@interface OpenParkingSpotsMapViewController () <MKMapViewDelegate>
+
+@property (strong, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -17,6 +20,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.mapView.delegate = self;
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
