@@ -13,12 +13,19 @@
 
 @end
 
+typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
+    TabBarControllerTabHistory,
+};
+
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+
+    // set up the delegates for all of the split view controllers
+    UISplitViewController *splitViewController = [[(UISplitViewController *)tabBarController viewControllers] objectAtIndex:TabBarControllerTabHistory];
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;

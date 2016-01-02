@@ -16,6 +16,8 @@
 		22E141421C38606B00931000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141401C38606B00931000 /* LaunchScreen.storyboard */; };
 		22E1414D1C38606B00931000 /* City_MeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1414C1C38606B00931000 /* City_MeterTests.m */; };
 		22E141581C38606B00931000 /* City_MeterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141571C38606B00931000 /* City_MeterUITests.m */; };
+		22E141691C3871AF00931000 /* OpenParkingSpotsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141681C3871AF00931000 /* OpenParkingSpotsListTableViewController.m */; };
+		22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		22E141531C38606B00931000 /* City MeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "City MeterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E141571C38606B00931000 /* City_MeterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City_MeterUITests.m; sourceTree = "<group>"; };
 		22E141591C38606B00931000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22E141671C3871AF00931000 /* OpenParkingSpotsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenParkingSpotsListTableViewController.h; sourceTree = "<group>"; };
+		22E141681C3871AF00931000 /* OpenParkingSpotsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenParkingSpotsListTableViewController.m; sourceTree = "<group>"; };
+		22E1416A1C38721500931000 /* OpenParkingSpotsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenParkingSpotsMapViewController.h; sourceTree = "<group>"; };
+		22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenParkingSpotsMapViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,10 +112,8 @@
 			children = (
 				22E141321C38606B00931000 /* AppDelegate.h */,
 				22E141331C38606B00931000 /* AppDelegate.m */,
-				22E141351C38606B00931000 /* MasterViewController.h */,
-				22E141361C38606B00931000 /* MasterViewController.m */,
-				22E141381C38606B00931000 /* DetailViewController.h */,
-				22E141391C38606B00931000 /* DetailViewController.m */,
+				22E141651C386D1C00931000 /* History */,
+				22E141661C386D4200931000 /* Map */,
 				22E1413B1C38606B00931000 /* Main.storyboard */,
 				22E1413E1C38606B00931000 /* Assets.xcassets */,
 				22E141401C38606B00931000 /* LaunchScreen.storyboard */,
@@ -143,6 +147,28 @@
 				22E141591C38606B00931000 /* Info.plist */,
 			);
 			path = "City MeterUITests";
+			sourceTree = "<group>";
+		};
+		22E141651C386D1C00931000 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				22E141351C38606B00931000 /* MasterViewController.h */,
+				22E141361C38606B00931000 /* MasterViewController.m */,
+				22E141381C38606B00931000 /* DetailViewController.h */,
+				22E141391C38606B00931000 /* DetailViewController.m */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		22E141661C386D4200931000 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				22E141671C3871AF00931000 /* OpenParkingSpotsListTableViewController.h */,
+				22E141681C3871AF00931000 /* OpenParkingSpotsListTableViewController.m */,
+				22E1416A1C38721500931000 /* OpenParkingSpotsMapViewController.h */,
+				22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,8 +303,10 @@
 			files = (
 				22E141341C38606B00931000 /* AppDelegate.m in Sources */,
 				22E141371C38606B00931000 /* MasterViewController.m in Sources */,
+				22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */,
 				22E141311C38606B00931000 /* main.m in Sources */,
 				22E1413A1C38606B00931000 /* DetailViewController.m in Sources */,
+				22E141691C3871AF00931000 /* OpenParkingSpotsListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
