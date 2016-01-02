@@ -19,6 +19,7 @@
 		22E141691C3871AF00931000 /* OpenParkingSpotsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141681C3871AF00931000 /* OpenParkingSpotsListTableViewController.m */; };
 		22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */; };
 		22E1416E1C387CF200931000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1416D1C387CF200931000 /* MapKit.framework */; };
+		22E141711C387DF400931000 /* ParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141701C387DF400931000 /* ParkingSpot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		22E1416A1C38721500931000 /* OpenParkingSpotsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenParkingSpotsMapViewController.h; sourceTree = "<group>"; };
 		22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenParkingSpotsMapViewController.m; sourceTree = "<group>"; };
 		22E1416D1C387CF200931000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		22E1416F1C387DF400931000 /* ParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingSpot.h; sourceTree = "<group>"; };
+		22E141701C387DF400931000 /* ParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingSpot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,7 @@
 				22E141651C386D1C00931000 /* History */,
 				22E141661C386D4200931000 /* Map */,
 				22E1413B1C38606B00931000 /* Main.storyboard */,
+				22E141721C387DF700931000 /* Model */,
 				22E1413E1C38606B00931000 /* Assets.xcassets */,
 				22E141401C38606B00931000 /* LaunchScreen.storyboard */,
 				22E141431C38606B00931000 /* Info.plist */,
@@ -173,6 +177,15 @@
 				22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */,
 			);
 			name = Map;
+			sourceTree = "<group>";
+		};
+		22E141721C387DF700931000 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22E1416F1C387DF400931000 /* ParkingSpot.h */,
+				22E141701C387DF400931000 /* ParkingSpot.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +321,7 @@
 				22E141341C38606B00931000 /* AppDelegate.m in Sources */,
 				22E141371C38606B00931000 /* MasterViewController.m in Sources */,
 				22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */,
+				22E141711C387DF400931000 /* ParkingSpot.m in Sources */,
 				22E141311C38606B00931000 /* main.m in Sources */,
 				22E1413A1C38606B00931000 /* DetailViewController.m in Sources */,
 				22E141691C3871AF00931000 /* OpenParkingSpotsListTableViewController.m in Sources */,

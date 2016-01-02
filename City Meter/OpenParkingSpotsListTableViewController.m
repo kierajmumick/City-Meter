@@ -7,6 +7,7 @@
 //
 
 #import "OpenParkingSpotsListTableViewController.h"
+#import "ParkingSpot.h"
 
 
 @interface OpenParkingSpotsListTableViewController ()
@@ -28,8 +29,7 @@
 
     self.detailViewController = (OpenParkingSpotsMapViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
-    self.objects = [@[@6, @7, @8, @9, @10, @11, @12] mutableCopy];
-
+    self.objects = [[ParkingSpot generateObjects] mutableCopy];
 
     self.title = @"Open Spots";
 }
@@ -61,6 +61,7 @@
     
     // Configure the cell...
     cell.textLabel.text = [NSString stringWithFormat:@"%@", self.objects[indexPath.row]];
+    cell.detailTextLabel.text = ((ParkingSpot *)self.objects[indexPath.row]).detailedDescription;
     
     return cell;
 }
@@ -69,8 +70,6 @@
 {
     [self performSegueWithIdentifier:@"showDetail" sender:nil];
 }
-
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

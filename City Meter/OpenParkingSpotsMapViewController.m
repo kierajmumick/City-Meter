@@ -8,6 +8,7 @@
 
 #import "OpenParkingSpotsMapViewController.h"
 #import <MapKit/MapKit.h>
+#import "ParkingSpot.h"
 
 @interface OpenParkingSpotsMapViewController () <MKMapViewDelegate>
 
@@ -20,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    [self addAnnotationsToMapView];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -41,5 +44,20 @@
         // Update the view.
     }
 }
+
+- (void)addAnnotationsToMapView
+{
+    if (self.mapView) {
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.coordinate = ((ParkingSpot *)self.detailItem).coordinate;
+        [self.mapView addAnnotation:annotation];
+    }
+}
+
+//#pragma mark - Map View Delegate
+//- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+//{
+//
+//}
 
 @end
