@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22E141311C38606B00931000 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141301C38606B00931000 /* main.m */; };
+		22E141341C38606B00931000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141331C38606B00931000 /* AppDelegate.m */; };
+		22E141371C38606B00931000 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141361C38606B00931000 /* MasterViewController.m */; };
+		22E1413A1C38606B00931000 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141391C38606B00931000 /* DetailViewController.m */; };
+		22E1413D1C38606B00931000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E1413B1C38606B00931000 /* Main.storyboard */; };
+		22E1413F1C38606B00931000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E1413E1C38606B00931000 /* Assets.xcassets */; };
+		22E141421C38606B00931000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141401C38606B00931000 /* LaunchScreen.storyboard */; };
+		22E1414D1C38606B00931000 /* City_MeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1414C1C38606B00931000 /* City_MeterTests.m */; };
+		22E141581C38606B00931000 /* City_MeterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141571C38606B00931000 /* City_MeterUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		22E141491C38606B00931000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22E141241C38606B00931000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22E1412B1C38606B00931000;
+			remoteInfo = "City Meter";
+		};
+		22E141541C38606B00931000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 22E141241C38606B00931000 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 22E1412B1C38606B00931000;
+			remoteInfo = "City Meter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		22E1412C1C38606B00931000 /* City Meter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "City Meter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E141301C38606B00931000 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		22E141321C38606B00931000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		22E141331C38606B00931000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		22E141351C38606B00931000 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		22E141361C38606B00931000 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		22E141381C38606B00931000 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		22E141391C38606B00931000 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		22E1413C1C38606B00931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22E1413E1C38606B00931000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		22E141411C38606B00931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		22E141431C38606B00931000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22E141481C38606B00931000 /* City MeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "City MeterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E1414C1C38606B00931000 /* City_MeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City_MeterTests.m; sourceTree = "<group>"; };
+		22E1414E1C38606B00931000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22E141531C38606B00931000 /* City MeterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "City MeterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22E141571C38606B00931000 /* City_MeterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = City_MeterUITests.m; sourceTree = "<group>"; };
+		22E141591C38606B00931000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		22E141291C38606B00931000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22E141451C38606B00931000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22E141501C38606B00931000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22E141231C38606B00931000 = {
+			isa = PBXGroup;
+			children = (
+				22E1412E1C38606B00931000 /* City Meter */,
+				22E1414B1C38606B00931000 /* City MeterTests */,
+				22E141561C38606B00931000 /* City MeterUITests */,
+				22E1412D1C38606B00931000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		22E1412D1C38606B00931000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				22E1412C1C38606B00931000 /* City Meter.app */,
+				22E141481C38606B00931000 /* City MeterTests.xctest */,
+				22E141531C38606B00931000 /* City MeterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		22E1412E1C38606B00931000 /* City Meter */ = {
+			isa = PBXGroup;
+			children = (
+				22E141321C38606B00931000 /* AppDelegate.h */,
+				22E141331C38606B00931000 /* AppDelegate.m */,
+				22E141351C38606B00931000 /* MasterViewController.h */,
+				22E141361C38606B00931000 /* MasterViewController.m */,
+				22E141381C38606B00931000 /* DetailViewController.h */,
+				22E141391C38606B00931000 /* DetailViewController.m */,
+				22E1413B1C38606B00931000 /* Main.storyboard */,
+				22E1413E1C38606B00931000 /* Assets.xcassets */,
+				22E141401C38606B00931000 /* LaunchScreen.storyboard */,
+				22E141431C38606B00931000 /* Info.plist */,
+				22E1412F1C38606B00931000 /* Supporting Files */,
+			);
+			path = "City Meter";
+			sourceTree = "<group>";
+		};
+		22E1412F1C38606B00931000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				22E141301C38606B00931000 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		22E1414B1C38606B00931000 /* City MeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				22E1414C1C38606B00931000 /* City_MeterTests.m */,
+				22E1414E1C38606B00931000 /* Info.plist */,
+			);
+			path = "City MeterTests";
+			sourceTree = "<group>";
+		};
+		22E141561C38606B00931000 /* City MeterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				22E141571C38606B00931000 /* City_MeterUITests.m */,
+				22E141591C38606B00931000 /* Info.plist */,
+			);
+			path = "City MeterUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		22E1412B1C38606B00931000 /* City Meter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22E1415C1C38606C00931000 /* Build configuration list for PBXNativeTarget "City Meter" */;
+			buildPhases = (
+				22E141281C38606B00931000 /* Sources */,
+				22E141291C38606B00931000 /* Frameworks */,
+				22E1412A1C38606B00931000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "City Meter";
+			productName = "City Meter";
+			productReference = 22E1412C1C38606B00931000 /* City Meter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		22E141471C38606B00931000 /* City MeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22E1415F1C38606C00931000 /* Build configuration list for PBXNativeTarget "City MeterTests" */;
+			buildPhases = (
+				22E141441C38606B00931000 /* Sources */,
+				22E141451C38606B00931000 /* Frameworks */,
+				22E141461C38606B00931000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22E1414A1C38606B00931000 /* PBXTargetDependency */,
+			);
+			name = "City MeterTests";
+			productName = "City MeterTests";
+			productReference = 22E141481C38606B00931000 /* City MeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		22E141521C38606B00931000 /* City MeterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 22E141621C38606C00931000 /* Build configuration list for PBXNativeTarget "City MeterUITests" */;
+			buildPhases = (
+				22E1414F1C38606B00931000 /* Sources */,
+				22E141501C38606B00931000 /* Frameworks */,
+				22E141511C38606B00931000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				22E141551C38606B00931000 /* PBXTargetDependency */,
+			);
+			name = "City MeterUITests";
+			productName = "City MeterUITests";
+			productReference = 22E141531C38606B00931000 /* City MeterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		22E141241C38606B00931000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Kieraj Mumick";
+				TargetAttributes = {
+					22E1412B1C38606B00931000 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					22E141471C38606B00931000 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 22E1412B1C38606B00931000;
+					};
+					22E141521C38606B00931000 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 22E1412B1C38606B00931000;
+					};
+				};
+			};
+			buildConfigurationList = 22E141271C38606B00931000 /* Build configuration list for PBXProject "City Meter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 22E141231C38606B00931000;
+			productRefGroup = 22E1412D1C38606B00931000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				22E1412B1C38606B00931000 /* City Meter */,
+				22E141471C38606B00931000 /* City MeterTests */,
+				22E141521C38606B00931000 /* City MeterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		22E1412A1C38606B00931000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E141421C38606B00931000 /* LaunchScreen.storyboard in Resources */,
+				22E1413F1C38606B00931000 /* Assets.xcassets in Resources */,
+				22E1413D1C38606B00931000 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22E141461C38606B00931000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22E141511C38606B00931000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		22E141281C38606B00931000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E141341C38606B00931000 /* AppDelegate.m in Sources */,
+				22E141371C38606B00931000 /* MasterViewController.m in Sources */,
+				22E141311C38606B00931000 /* main.m in Sources */,
+				22E1413A1C38606B00931000 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22E141441C38606B00931000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E1414D1C38606B00931000 /* City_MeterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		22E1414F1C38606B00931000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22E141581C38606B00931000 /* City_MeterUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		22E1414A1C38606B00931000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22E1412B1C38606B00931000 /* City Meter */;
+			targetProxy = 22E141491C38606B00931000 /* PBXContainerItemProxy */;
+		};
+		22E141551C38606B00931000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 22E1412B1C38606B00931000 /* City Meter */;
+			targetProxy = 22E141541C38606B00931000 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		22E1413B1C38606B00931000 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22E1413C1C38606B00931000 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		22E141401C38606B00931000 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22E141411C38606B00931000 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		22E1415A1C38606B00931000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		22E1415B1C38606B00931000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		22E1415D1C38606C00931000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "City Meter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kierajmumick.City-Meter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		22E1415E1C38606C00931000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "City Meter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kierajmumick.City-Meter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		22E141601C38606C00931000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "City MeterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kierajmumick.City-MeterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/City Meter.app/City Meter";
+			};
+			name = Debug;
+		};
+		22E141611C38606C00931000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "City MeterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kierajmumick.City-MeterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/City Meter.app/City Meter";
+			};
+			name = Release;
+		};
+		22E141631C38606C00931000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "City MeterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kierajmumick.City-MeterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "City Meter";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		22E141641C38606C00931000 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "City MeterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kierajmumick.City-MeterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "City Meter";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		22E141271C38606B00931000 /* Build configuration list for PBXProject "City Meter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E1415A1C38606B00931000 /* Debug */,
+				22E1415B1C38606B00931000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		22E1415C1C38606C00931000 /* Build configuration list for PBXNativeTarget "City Meter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E1415D1C38606C00931000 /* Debug */,
+				22E1415E1C38606C00931000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22E1415F1C38606C00931000 /* Build configuration list for PBXNativeTarget "City MeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E141601C38606C00931000 /* Debug */,
+				22E141611C38606C00931000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		22E141621C38606C00931000 /* Build configuration list for PBXNativeTarget "City MeterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22E141631C38606C00931000 /* Debug */,
+				22E141641C38606C00931000 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 22E141241C38606B00931000 /* Project object */;
+}
