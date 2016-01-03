@@ -8,11 +8,14 @@
 
 #import "OpenParkingSpotsListTableViewController.h"
 #import "ParkingSpot.h"
+#import "Colours.h"
 
 
-@interface OpenParkingSpotsListTableViewController () <MKMapViewDelegate>
+@interface OpenParkingSpotsListTableViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchControllerDelegate>
 
 @property (strong, nonatomic) NSMutableArray *objects;
+@property (strong, nonatomic) NSMutableArray *searchObjects;
+@property (nonatomic) BOOL currentlySearching;
 
 @end
 
@@ -30,8 +33,7 @@
     self.detailViewController = (OpenParkingSpotsMapViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
     self.objects = [[ParkingSpot generateObjects] mutableCopy];
-
-    self.tableView.backgroundColor = [UIColor darkGrayColor];
+    self.searchObjects = [self.objects mutableCopy];
 
     self.title = @"Open Spots";
 }
@@ -59,36 +61,43 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"parkingLocationListCell" forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"parkingLocationListCell" forIndexPath:indexPath];
     // Configure the cell...
     UILabel *textLabel = [cell viewWithTag:771];
-    MKMapView *mapView = [cell viewWithTag:772];
+    UILabel *metrIdLabel = [cell viewWithTag:772];
+    UIView *colourView = [cell viewWithTag:774];
 
     textLabel.text = [NSString stringWithFormat:@"%@", self.objects[indexPath.row]];
 
     ParkingSpot *spot = self.objects[indexPath.row];
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    annotation.coordinate = spot.coordinate;
+    textLabel.text = [NSString stringWithFormat:@"%@ %@", spot.firstName, spot.lastName];
+    metrIdLabel.text = spot.spotNumber;
+    colourView.backgroundColor = spot.isAvailable ? [Colours greenColour] : (indexPath.row < 4 ? [Colours orangeColour] : [Colours redColour]);
 
-    [mapView removeAnnotations:mapView.annotations];
-    [mapView addAnnotation:annotation];
-
-    mapView.mapType = MKMapTypeSatellite;
-    mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(annotation.coordinate.latitude + 0.0004, annotation.coordinate.longitude), MKCoordinateSpanMake(.001, .001));
-    mapView.userInteractionEnabled = NO;
+    colourView.clipsToBounds = YES;
+    colourView.layer.masksToBounds = YES;
+    colourView.layer.cornerRadius = colourView.frame.size.width / 2;
 
     return cell;
 }
 
+- (NSMutableArray *)objects
+{
+    if (self.currentlySearching) {
+        return _searchObjects;
+    }
+
+    return _objects;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"showDetail" sender:nil];
+    [self performSegueWithIdentifier:@"showDetail" sender:tableView];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 200;
+    return 44;
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
@@ -139,7 +148,10 @@
     // Pass the selected object to the new view controller.
 
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        // the sender is the table view that was selected
+        UITableView *selectedTableView = (UITableView *)sender;
+
+        NSIndexPath *indexPath = [selectedTableView indexPathForSelectedRow];
         NSDate *object = self.objects[indexPath.row];
         OpenParkingSpotsMapViewController *controller = (OpenParkingSpotsMapViewController *)[[segue destinationViewController] topViewController];
 
@@ -148,6 +160,35 @@
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
+}
+
+#pragma mark - Search Display Delegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    self.currentlySearching = YES;
+    // filter through all of the objects
+    NSMutableArray *newSearchObjects = [NSMutableArray new];
+    for (ParkingSpot *parkingSpot in _objects) {
+        // keep the result if:
+        // (1) the username contains the text typed in
+        // (2) the MetrID contains the text typed in
+        // (3) the address contains the text typed in
+        if ([[NSString stringWithFormat:@"%@ %@", parkingSpot.firstName, parkingSpot.lastName] containsString:searchText] || [parkingSpot.spotNumber containsString:searchText] /*[parkingSpot.address containsString:searchText]*/) {
+            [newSearchObjects addObject:parkingSpot];
+        }
+    }
+    self.searchObjects = newSearchObjects;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.searchObjects = [NSMutableArray new];
+    self.currentlySearching = NO;
 }
 
 

@@ -43,7 +43,7 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
     self.rowTitles = @[@"Parking Spot Owner", @"Address", @"Parking Spot Number", @"Currently Available", @"Max Parking Time", @"Book Now"];
 
     ParkingSpot *item = (ParkingSpot *)self.detailItem;
-    self.title = [NSString stringWithFormat:@"%@ %@ Spot #%i", item.firstName, item.lastName, item.spotNumber];
+    self.title = [NSString stringWithFormat:@"%@ %@ #%@", item.firstName, item.lastName, item.spotNumber];
 
     self.tableView.backgroundColor = [UIColor clearColor];
 }
@@ -134,7 +134,7 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@", parkingSpot.firstName, parkingSpot.lastName];
             break;
         case RowIndexParkingSpotNumber:
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%i", parkingSpot.spotNumber];
+            cell.detailTextLabel.text = parkingSpot.spotNumber;
             break;
         case RowIndexCurrentlyAvailable:
             cell.detailTextLabel.text = parkingSpot.isAvailable ? @"Yes" : @"No";

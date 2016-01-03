@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSString *lastName;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) BOOL isAvailable;
-@property (nonatomic) int spotNumber;
+@property (nonatomic, strong) NSString *spotNumber;
 @property (nonatomic) int maxNumMinutes;
 
 - (NSString *)detailedDescription;

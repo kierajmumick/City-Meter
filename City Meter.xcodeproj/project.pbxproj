@@ -20,6 +20,7 @@
 		22E1416E1C387CF200931000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1416D1C387CF200931000 /* MapKit.framework */; };
 		22E141711C387DF400931000 /* ParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141701C387DF400931000 /* ParkingSpot.m */; };
 		22E141751C38A5B800931000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141731C38A5B800931000 /* Main.storyboard */; };
+		22E141781C38F60F00931000 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141771C38F60F00931000 /* Colours.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		22E1416F1C387DF400931000 /* ParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingSpot.h; sourceTree = "<group>"; };
 		22E141701C387DF400931000 /* ParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingSpot.m; sourceTree = "<group>"; };
 		22E141741C38A5B800931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		22E141761C38F60F00931000 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		22E141771C38F60F00931000 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +187,8 @@
 			children = (
 				22E1416F1C387DF400931000 /* ParkingSpot.h */,
 				22E141701C387DF400931000 /* ParkingSpot.m */,
+				22E141761C38F60F00931000 /* Colours.h */,
+				22E141771C38F60F00931000 /* Colours.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				22E141341C38606B00931000 /* AppDelegate.m in Sources */,
 				22E141371C38606B00931000 /* MasterViewController.m in Sources */,
 				22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */,
+				22E141781C38F60F00931000 /* Colours.m in Sources */,
 				22E141711C387DF400931000 /* ParkingSpot.m in Sources */,
 				22E141311C38606B00931000 /* main.m in Sources */,
 				22E1413A1C38606B00931000 /* DetailViewController.m in Sources */,
@@ -550,6 +556,7 @@
 				22E1415E1C38606C00931000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22E1415F1C38606C00931000 /* Build configuration list for PBXNativeTarget "City MeterTests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +565,7 @@
 				22E141611C38606C00931000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22E141621C38606C00931000 /* Build configuration list for PBXNativeTarget "City MeterUITests" */ = {
 			isa = XCConfigurationList;
@@ -566,6 +574,7 @@
 				22E141641C38606C00931000 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
