@@ -79,4 +79,39 @@
     return json;
 }
 
++ (void)leaveParkingSpace
+{
+    NSDictionary *userDictionary = [MetrAPI getUserObject];
+    NSString *urlString = [NSString stringWithFormat:@"%@/parking-space/leave?userId=%@", [MetrAPI baseURL], userDictionary[@"_id"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSError *stringError;
+    NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&stringError];
+    if (stringError) {
+        NSLog(@"error: %@", stringError);
+    }
+
+    NSError *decodingError;
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&decodingError];
+//    return json;
+}
+
+
++ (NSArray *)getHistoryForCurrentUser
+{
+    NSDictionary *userDictionary = [MetrAPI getUserObject];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/trips/of-user/%@", [MetrAPI baseURL], userDictionary[@"_id"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSError *stringError;
+    NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&stringError];
+    if (stringError) {
+        NSLog(@"error: %@", stringError);
+    }
+
+    NSError *decodingError;
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&decodingError];
+    return json;
+}
+
 @end

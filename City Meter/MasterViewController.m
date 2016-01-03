@@ -23,7 +23,7 @@
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
-    self.objects = [@[@1, @2, @3, @4, @5] mutableCopy];
+    self.objects = [[MetrAPI getHistoryForCurrentUser] mutableCopy];
 
     self.title = @"History";
 

@@ -16,6 +16,9 @@
 + (NSArray *)findParkingSpotsAroundCoordinate:(CLLocationCoordinate2D)coordinate andMiles:(float)miles;
 + (NSArray *)findParkingSpotsAroundCoordinateWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude andMiles:(float)miles;
 + (void)makeParkingSpotUnavailable:(ParkingSpot *)parkingSpot;
++ (void)leaveParkingSpace;
 + (void)loginWithUsername:(NSString *)username password:(NSString *)password;
 + (NSDictionary *)getUserObject;
+
++ (NSArray *)getHistoryForCurrentUser;
 @end

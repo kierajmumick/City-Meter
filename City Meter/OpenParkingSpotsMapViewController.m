@@ -158,9 +158,13 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
 {
     ParkingSpot *parkingSpot = (ParkingSpot *)self.detailItem;
     if (indexPath.row == RowIndexBookNow) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm your parking spot" message:[NSString stringWithFormat:@"Please confirm that you are at this parking spot. Make sure you understand that you can be parked here for a maximum of %.2f hours", parkingSpot.maxNumMinutes / 60.0] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm your parking spot" message:[NSString stringWithFormat:@"Please confirm that you are at this parking spot"] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *confirmAlertAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nullable alertAction) {
-            [MetrAPI makeParkingSpotUnavailable:parkingSpot];
+            if (parkingSpot.isAvailable) {
+                [MetrAPI makeParkingSpotUnavailable:parkingSpot];
+            } else {
+                [MetrAPI leaveParkingSpace];
+            }
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
                 [self.navigationController.navigationController popViewControllerAnimated:YES];
