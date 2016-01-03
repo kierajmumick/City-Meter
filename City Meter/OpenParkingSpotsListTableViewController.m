@@ -31,6 +31,8 @@
 
     self.objects = [[ParkingSpot generateObjects] mutableCopy];
 
+    self.tableView.backgroundColor = [UIColor darkGrayColor];
+
     self.title = @"Open Spots";
 }
 
@@ -60,9 +62,22 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"parkingLocationListCell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", self.objects[indexPath.row]];
-    cell.detailTextLabel.text = ((ParkingSpot *)self.objects[indexPath.row]).detailedDescription;
-    
+    UILabel *textLabel = [cell viewWithTag:771];
+    MKMapView *mapView = [cell viewWithTag:772];
+
+    textLabel.text = [NSString stringWithFormat:@"%@", self.objects[indexPath.row]];
+
+    ParkingSpot *spot = self.objects[indexPath.row];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = spot.coordinate;
+
+    [mapView removeAnnotations:mapView.annotations];
+    [mapView addAnnotation:annotation];
+
+    mapView.mapType = MKMapTypeSatellite;
+    mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(annotation.coordinate.latitude + 0.0001, annotation.coordinate.longitude), MKCoordinateSpanMake(0.001, 0.001));
+    mapView.userInteractionEnabled = NO;
+
     return cell;
 }
 
@@ -70,6 +85,12 @@
 {
     [self performSegueWithIdentifier:@"showDetail" sender:nil];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 200;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -11,7 +11,6 @@
 		22E141341C38606B00931000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141331C38606B00931000 /* AppDelegate.m */; };
 		22E141371C38606B00931000 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141361C38606B00931000 /* MasterViewController.m */; };
 		22E1413A1C38606B00931000 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141391C38606B00931000 /* DetailViewController.m */; };
-		22E1413D1C38606B00931000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E1413B1C38606B00931000 /* Main.storyboard */; };
 		22E1413F1C38606B00931000 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22E1413E1C38606B00931000 /* Assets.xcassets */; };
 		22E141421C38606B00931000 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141401C38606B00931000 /* LaunchScreen.storyboard */; };
 		22E1414D1C38606B00931000 /* City_MeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1414C1C38606B00931000 /* City_MeterTests.m */; };
@@ -20,6 +19,7 @@
 		22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1416B1C38721500931000 /* OpenParkingSpotsMapViewController.m */; };
 		22E1416E1C387CF200931000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E1416D1C387CF200931000 /* MapKit.framework */; };
 		22E141711C387DF400931000 /* ParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141701C387DF400931000 /* ParkingSpot.m */; };
+		22E141751C38A5B800931000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141731C38A5B800931000 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,6 @@
 		22E141361C38606B00931000 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		22E141381C38606B00931000 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		22E141391C38606B00931000 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		22E1413C1C38606B00931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22E1413E1C38606B00931000 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		22E141411C38606B00931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		22E141431C38606B00931000 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		22E1416D1C387CF200931000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		22E1416F1C387DF400931000 /* ParkingSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingSpot.h; sourceTree = "<group>"; };
 		22E141701C387DF400931000 /* ParkingSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingSpot.m; sourceTree = "<group>"; };
+		22E141741C38A5B800931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +121,10 @@
 				22E141331C38606B00931000 /* AppDelegate.m */,
 				22E141651C386D1C00931000 /* History */,
 				22E141661C386D4200931000 /* Map */,
-				22E1413B1C38606B00931000 /* Main.storyboard */,
 				22E141721C387DF700931000 /* Model */,
 				22E1413E1C38606B00931000 /* Assets.xcassets */,
 				22E141401C38606B00931000 /* LaunchScreen.storyboard */,
+				22E141731C38A5B800931000 /* Main.storyboard */,
 				22E141431C38606B00931000 /* Info.plist */,
 				22E1412F1C38606B00931000 /* Supporting Files */,
 			);
@@ -291,9 +291,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22E141751C38A5B800931000 /* Main.storyboard in Resources */,
 				22E141421C38606B00931000 /* LaunchScreen.storyboard in Resources */,
 				22E1413F1C38606B00931000 /* Assets.xcassets in Resources */,
-				22E1413D1C38606B00931000 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,20 +360,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		22E1413B1C38606B00931000 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				22E1413C1C38606B00931000 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		22E141401C38606B00931000 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				22E141411C38606B00931000 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		22E141731C38A5B800931000 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				22E141741C38A5B800931000 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
