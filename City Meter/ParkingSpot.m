@@ -19,6 +19,7 @@
         self.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
         self.isAvailable = YES;
         self.spotNumber = spotNumber;
+        self.maxNumMinutes = spotNumber * 60;
     }
     return self;
 }

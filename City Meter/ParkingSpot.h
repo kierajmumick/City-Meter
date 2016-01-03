@@ -16,6 +16,7 @@
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic) BOOL isAvailable;
 @property (nonatomic) int spotNumber;
+@property (nonatomic) int maxNumMinutes;
 
 - (NSString *)detailedDescription;
 + (NSArray *)generateObjects;
