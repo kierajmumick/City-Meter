@@ -22,6 +22,7 @@
 		22E141751C38A5B800931000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141731C38A5B800931000 /* Main.storyboard */; };
 		22E141781C38F60F00931000 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141771C38F60F00931000 /* Colours.m */; };
 		22E1417B1C3920F100931000 /* MetrAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1417A1C3920F100931000 /* MetrAPI.m */; };
+		22E141811C39426400931000 /* URLConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141801C39426400931000 /* URLConnectionDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		22E141771C38F60F00931000 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 		22E141791C3920F100931000 /* MetrAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetrAPI.h; sourceTree = "<group>"; };
 		22E1417A1C3920F100931000 /* MetrAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetrAPI.m; sourceTree = "<group>"; };
+		22E1417F1C39426400931000 /* URLConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectionDelegate.h; sourceTree = "<group>"; };
+		22E141801C39426400931000 /* URLConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLConnectionDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +193,8 @@
 			children = (
 				22E141791C3920F100931000 /* MetrAPI.h */,
 				22E1417A1C3920F100931000 /* MetrAPI.m */,
+				22E1417F1C39426400931000 /* URLConnectionDelegate.h */,
+				22E141801C39426400931000 /* URLConnectionDelegate.m */,
 				22E1416F1C387DF400931000 /* ParkingSpot.h */,
 				22E141701C387DF400931000 /* ParkingSpot.m */,
 				22E141761C38F60F00931000 /* Colours.h */,
@@ -330,6 +335,7 @@
 			files = (
 				22E141341C38606B00931000 /* AppDelegate.m in Sources */,
 				22E141371C38606B00931000 /* MasterViewController.m in Sources */,
+				22E141811C39426400931000 /* URLConnectionDelegate.m in Sources */,
 				22E1416C1C38721500931000 /* OpenParkingSpotsMapViewController.m in Sources */,
 				22E141781C38F60F00931000 /* Colours.m in Sources */,
 				22E141711C387DF400931000 /* ParkingSpot.m in Sources */,

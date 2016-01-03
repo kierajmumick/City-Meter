@@ -17,4 +17,5 @@
 + (NSArray *)findParkingSpotsAroundCoordinateWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude andMiles:(float)miles;
 + (void)makeParkingSpotUnavailable:(ParkingSpot *)parkingSpot;
 + (void)loginWithUsername:(NSString *)username password:(NSString *)password;
++ (NSDictionary *)getUserObject;
 @end

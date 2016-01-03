@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
     availableSpotsNavigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     availableSpotsSplitViewController.delegate = self;
 
-    [MetrAPI loginWithUsername:@"kieraj@mumick.com" password:@"kieraj"];
+    self.userDictionary = [MetrAPI getUserObject];
 
     return YES;
 }

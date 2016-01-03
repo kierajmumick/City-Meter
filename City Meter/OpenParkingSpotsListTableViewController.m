@@ -34,14 +34,17 @@
 
     self.searchObjects = [self.objects mutableCopy];
 
-    self.title = @"Open Spots";
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"All Spots", @"Open Spots"]];
+    [segmentedControl setSelectedSegmentIndex:1];
+    self.navigationItem.titleView = segmentedControl;
+    self.title = @"Spots";
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
     self.objects = [[ParkingSpot generateObjects] mutableCopy];
-
+    [self.tableView reloadData];
 
     [super viewWillAppear:animated];
 
@@ -75,7 +78,7 @@
     ParkingSpot *spot = self.objects[indexPath.row];
     textLabel.text = [NSString stringWithFormat:@"%@ %@", spot.firstName, spot.lastName];
     metrIdLabel.text = spot.spotNumber;
-    colourView.backgroundColor = spot.isAvailable ? [Colours greenColour] : (indexPath.row < 4 ? [Colours orangeColour] : [Colours redColour]);
+    colourView.backgroundColor = spot.isAvailable ? [Colours greenColour] : [Colours redColour]; //(indexPath.row < 4 ? [Colours orangeColour] : [Colours redColour]);
 
     colourView.clipsToBounds = YES;
     colourView.layer.masksToBounds = YES;
@@ -193,6 +196,9 @@
     self.searchObjects = [NSMutableArray new];
     self.currentlySearching = NO;
 }
+
+#pragma mark - Segmented Control Selected
+- 9
 
 
 

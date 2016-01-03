@@ -39,7 +39,6 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
     [self addAnnotationsToMapView];
 
     self.mapView.mapType = MKMapTypeSatelliteFlyover;
-    self.mapView.showsUserLocation = YES;
 
     self.rowTitles = @[@"Parking Spot Owner", @"Address", @"Parking Spot Number", @"Currently Available", @"Max Parking Time", @"Book Now"];
 

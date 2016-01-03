@@ -7,17 +7,18 @@
 //
 
 #import "MetrAPI.h"
+#import "URLConnectionDelegate.h"
+#import "AppDelegate.h"
 
 @interface MetrAPI () <NSURLConnectionDataDelegate>
 
 @end
 
-
 @implementation MetrAPI
 
 + (NSString *)baseURL
 {
-    return @"https://iot-parking-meter.herokuapp.com";
+    return @"https://metr.herokuapp.com";
 }
 
 + (NSArray *)findParkingSpotsAroundCoordinate:(CLLocationCoordinate2D)coordinate andMiles:(float)miles
@@ -26,7 +27,9 @@
     NSString *urlString = [NSString stringWithFormat:@"%@/api/parking-spaces/find/nearby?lat=%f&lng=%f&miles=%f", [MetrAPI baseURL], coordinate.latitude, coordinate.longitude, miles];
     NSError *stringError;
     NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:&stringError];
-
+    if (stringError) {
+        NSLog(@"stringError: %@", stringError);
+    }
 
     NSError *decodingError;
     NSArray *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&decodingError];
@@ -40,11 +43,11 @@
 
 + (void)makeParkingSpotUnavailable:(ParkingSpot *)parkingSpot
 {
-    NSString *urlString = [NSString stringWithFormat:@"%@/parking-space/occupy/%@", [MetrAPI baseURL], parkingSpot.fullID];
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    NSString *urlString = [NSString stringWithFormat:@"%@/parking-space/occupy/%@?userId=%@", [MetrAPI baseURL], parkingSpot.fullID, appDelegate.userDictionary[@"_id"]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    [urlRequest setHTTPMethod:@"POST"];
-    [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil] start];
+    [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:[URLConnectionDelegate new]] start];
 }
 
 + (void)loginWithUsername:(NSString *)username password:(NSString *)password
@@ -57,7 +60,23 @@
     NSString *bodyData = [NSString stringWithFormat:@"email=%@&password=%@", username, password];
     [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
 
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:[URLConnectionDelegate new]];
+}
+
++ (NSDictionary *)getUserObject
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/users/find-by/email?email=kieraj@mumick.com", [MetrAPI baseURL]];
+    NSURL *url = [NSURL URLWithString:urlString];
+
+    NSError *stringError;
+    NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&stringError];
+    if (stringError) {
+        NSLog(@"error: %@", stringError);
+    }
+
+    NSError *decodingError;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&decodingError];
+    return json;
 }
 
 @end
