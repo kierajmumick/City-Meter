@@ -6,9 +6,9 @@
 //  Copyright © 2016 Kieraj Mumick. All rights reserved.
 //
 
-#import "URLConnectionDelegate.h"
+#import "URLConnectionDelegateGeneric.h"
 
-@implementation URLConnectionDelegate
+@implementation URLConnectionDelegateGeneric
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {

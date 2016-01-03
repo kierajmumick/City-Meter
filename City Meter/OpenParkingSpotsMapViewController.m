@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "ParkingSpot.h"
 #import "MetrAPI.h"
+#import "Colours.h"
 
 @interface OpenParkingSpotsMapViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -40,7 +41,7 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
 
     self.mapView.mapType = MKMapTypeSatelliteFlyover;
 
-    self.rowTitles = @[@"Parking Spot Owner", @"Address", @"Parking Spot Number", @"Currently Available", @"Max Parking Time", @"Book Now"];
+    self.rowTitles = @[@"Parking Spot Owner", @"Address", @"Parking Spot Number", @"Currently Available", @"Rate", @"Book Now"];
 
     ParkingSpot *item = (ParkingSpot *)self.detailItem;
     self.title = [NSString stringWithFormat:@"%@ %@ #%@", item.firstName, item.lastName, item.spotNumber];
@@ -88,8 +89,6 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
     ParkingSpot *parkingSpot = (ParkingSpot *)self.detailItem;
     if (indexPath.row == RowIndexEmptyCell) {
         return 250;
-    } else if (indexPath.row == RowIndexBookNow && !parkingSpot.isAvailable) {
-        return 0;
     }
     return 44;
 }
@@ -107,17 +106,24 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ParkingSpot *parkingSpot = (ParkingSpot *)self.detailItem;
+
     UITableViewCell *cell;
     if (indexPath.row == RowIndexBookNow) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"bookNowCell"];
-        cell.backgroundColor = [UIColor colorWithRed:.169 green:.784 blue:.137 alpha:1];
+        UILabel *payForSpotLabel = [cell viewWithTag:1];
+        payForSpotLabel.textColor = [UIColor whiteColor];
+        if (parkingSpot.isAvailable) {
+            cell.backgroundColor = [Colours greenColour];
+        } else {
+            cell.backgroundColor = [Colours redColour];
+        }
         cell.clipsToBounds = YES;
         return cell;
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:@"availableParkingInfoCell"];
     }
 
-    ParkingSpot *parkingSpot = (ParkingSpot *)self.detailItem;
 
     if (indexPath.row == RowIndexEmptyCell) {
         cell.backgroundColor = [UIColor clearColor];
@@ -140,7 +146,7 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
             cell.detailTextLabel.text = parkingSpot.isAvailable ? @"Yes" : @"No";
             break;
         case RowIndexMaximumParkingTime:
-            cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2f hours", parkingSpot.maxNumMinutes / 60.0];
+            cell.detailTextLabel.text = [NSString stringWithFormat:@"$%i", parkingSpot.maxNumMinutes];
         default:
             break;
     }

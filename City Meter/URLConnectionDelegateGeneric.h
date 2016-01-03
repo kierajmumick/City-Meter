@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface URLConnectionDelegate : NSObject <NSURLConnectionDataDelegate>
+@interface URLConnectionDelegateGeneric : NSObject <NSURLConnectionDataDelegate>
 
 @end

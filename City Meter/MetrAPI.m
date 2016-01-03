@@ -7,7 +7,7 @@
 //
 
 #import "MetrAPI.h"
-#import "URLConnectionDelegate.h"
+#import "URLConnectionDelegateGeneric.h"
 #import "AppDelegate.h"
 
 @interface MetrAPI () <NSURLConnectionDataDelegate>
@@ -43,11 +43,11 @@
 
 + (void)makeParkingSpotUnavailable:(ParkingSpot *)parkingSpot
 {
-    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    NSString *urlString = [NSString stringWithFormat:@"%@/parking-space/occupy/%@?userId=%@", [MetrAPI baseURL], parkingSpot.fullID, appDelegate.userDictionary[@"_id"]];
+    NSDictionary *userDictionary = [MetrAPI getUserObject];
+    NSString *urlString = [NSString stringWithFormat:@"%@/parking-space/occupy/%@?userId=%@", [MetrAPI baseURL], parkingSpot.fullID, userDictionary[@"_id"]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
-    [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:[URLConnectionDelegate new]] start];
+    [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:[URLConnectionDelegateGeneric new]] start];
 }
 
 + (void)loginWithUsername:(NSString *)username password:(NSString *)password
@@ -60,7 +60,7 @@
     NSString *bodyData = [NSString stringWithFormat:@"email=%@&password=%@", username, password];
     [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
 
-    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:[URLConnectionDelegate new]];
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:[URLConnectionDelegateGeneric new]];
 }
 
 + (NSDictionary *)getUserObject
