@@ -25,8 +25,6 @@
 
     self.objects = [@[@1, @2, @3, @4, @5] mutableCopy];
 
-    [MetrAPI findParkingSpotsAroundCoordinate:CLLocationCoordinate2DMake(37.795093, -122.404533) andMiles:1000];
-
     self.title = @"History";
 
 }

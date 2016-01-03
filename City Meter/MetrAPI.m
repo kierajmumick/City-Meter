@@ -7,7 +7,6 @@
 //
 
 #import "MetrAPI.h"
-#import "APIDelegate.h"
 
 @interface MetrAPI () <NSURLConnectionDataDelegate>
 
