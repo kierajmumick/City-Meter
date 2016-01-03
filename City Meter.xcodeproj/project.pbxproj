@@ -21,6 +21,7 @@
 		22E141711C387DF400931000 /* ParkingSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141701C387DF400931000 /* ParkingSpot.m */; };
 		22E141751C38A5B800931000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22E141731C38A5B800931000 /* Main.storyboard */; };
 		22E141781C38F60F00931000 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E141771C38F60F00931000 /* Colours.m */; };
+		22E1417B1C3920F100931000 /* MetrAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E1417A1C3920F100931000 /* MetrAPI.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		22E141741C38A5B800931000 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		22E141761C38F60F00931000 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
 		22E141771C38F60F00931000 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
+		22E141791C3920F100931000 /* MetrAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetrAPI.h; sourceTree = "<group>"; };
+		22E1417A1C3920F100931000 /* MetrAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetrAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 		22E141721C387DF700931000 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				22E141791C3920F100931000 /* MetrAPI.h */,
+				22E1417A1C3920F100931000 /* MetrAPI.m */,
 				22E1416F1C387DF400931000 /* ParkingSpot.h */,
 				22E141701C387DF400931000 /* ParkingSpot.m */,
 				22E141761C38F60F00931000 /* Colours.h */,
@@ -330,6 +335,7 @@
 				22E141711C387DF400931000 /* ParkingSpot.m in Sources */,
 				22E141311C38606B00931000 /* main.m in Sources */,
 				22E1413A1C38606B00931000 /* DetailViewController.m in Sources */,
+				22E1417B1C3920F100931000 /* MetrAPI.m in Sources */,
 				22E141691C3871AF00931000 /* OpenParkingSpotsListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
