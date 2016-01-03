@@ -23,6 +23,11 @@
     // Do any additional setup after loading the view.
 
     [self addAnnotationsToMapView];
+
+    self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.showsUserLocation = YES;
+
+    self.title = @"Available Parking";
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -48,9 +53,24 @@
 - (void)addAnnotationsToMapView
 {
     if (self.mapView) {
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-        annotation.coordinate = ((ParkingSpot *)self.detailItem).coordinate;
-        [self.mapView addAnnotation:annotation];
+        NSArray *allPoints = [ParkingSpot generateObjects];
+
+        CLLocationCoordinate2D coordinate = ((ParkingSpot *)self.detailItem).coordinate;
+        for (ParkingSpot *spot in allPoints) {
+            if (spot.isAvailable) {
+                MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
+                pointAnnotation.title = spot.description;
+                pointAnnotation.coordinate = spot.coordinate;
+                [self.mapView addAnnotation:pointAnnotation];
+
+                if (pointAnnotation.coordinate.latitude == coordinate.latitude && pointAnnotation.coordinate.longitude == coordinate.longitude) {
+                    [self.mapView selectAnnotation:pointAnnotation animated:YES];
+                }
+            }
+        }
+
+        MKCoordinateRegion coordinateRegion = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.001, 0.001));
+        [self.mapView setRegion:coordinateRegion];
     }
 }
 

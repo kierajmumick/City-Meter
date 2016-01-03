@@ -17,7 +17,7 @@
         self.firstName = firstName;
         self.lastName = lastName;
         self.coordinate = CLLocationCoordinate2DMake(latitude, longitude);
-        self.isAvailable = NO;
+        self.isAvailable = YES;
     }
     return self;
 }
