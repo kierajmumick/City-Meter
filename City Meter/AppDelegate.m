@@ -30,6 +30,10 @@ typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
     // set up the delegates for all of the split view controllers
     UISplitViewController *splitViewController = (UISplitViewController *)[[tabBarController viewControllers] objectAtIndex:TabBarControllerTabHistory];
     UISplitViewController *availableSpotsSplitViewController = (UISplitViewController *)[[tabBarController viewControllers] objectAtIndex:TabBarControllerTabAvailableSpots];
+    availableSpotsSplitViewController.title = @"Parking Search";
+    [availableSpotsSplitViewController.tabBarItem setImage:[UIImage imageNamed:@"Parking"]];
+    [availableSpotsSplitViewController.tabBarItem setSelectedImage:[UIImage imageNamed:@"Parking-Filled"]];
+
 
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;

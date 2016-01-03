@@ -38,7 +38,7 @@
 + (NSArray *)generateObjects
 {
     NSArray *array = [MetrAPI findParkingSpotsAroundCoordinate:CLLocationCoordinate2DMake(37.795093, -122.404533) andMiles:1000];
-    NSLog(@"%@", array);
+    //NSLog(@"%@", array);
 
     NSMutableArray *objects = [NSMutableArray new];
     for (NSDictionary *dictionary in array) {

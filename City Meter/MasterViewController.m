@@ -23,14 +23,15 @@
 
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
-    self.objects = [[MetrAPI getHistoryForCurrentUser] mutableCopy];
-
     self.title = @"History";
 
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
+
+    self.objects = [[MetrAPI getHistoryForCurrentUser] mutableCopy];
+
     [super viewWillAppear:animated];
 }
 
@@ -53,10 +54,24 @@
     }
 }
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+    if ([identifier isEqualToString:@"showDetail"]) {
+        return NO;
+    }
+
+    return YES;
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 156;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -66,14 +81,52 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSNumber *object = self.objects[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", object];
+    NSDictionary *object = self.objects[indexPath.row];
+
+    UILabel *dateLabel = [cell viewWithTag:101];
+    UILabel *startTimeLabel = [cell viewWithTag:102];
+    UILabel *endTimeLabel = [cell viewWithTag:103];
+    UILabel *hourlyRateLabel = [cell viewWithTag:104];
+    UILabel *finalChargeLabel = [cell viewWithTag:105];
+
+    NSString *startTime = object[@"startTime"];
+    NSString *endTime = object[@"endTime"];
+
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    NSDate *startDate = [dateFormatter dateFromString:startTime];
+    NSDate *endDate = [dateFormatter dateFromString:endTime];
+
+    NSDateFormatter *legibleFormatter = [[NSDateFormatter alloc] init];
+    legibleFormatter.dateStyle = NSDateFormatterShortStyle;
+    NSString *startDateShort = [legibleFormatter stringFromDate:startDate];
+
+    NSString *parkingSpaceID = object[@"parkingSpace"];
+    NSString *parkingSpaceLast4 = [parkingSpaceID substringFromIndex:(parkingSpaceID.length - 4)];
+    dateLabel.text = [NSString stringWithFormat:@"%@ - Spot #%@", startDateShort, parkingSpaceLast4];
+
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc] init];
+    timeFormatter.dateFormat = @"HH:mm a";
+    NSString *startTimeShort = [timeFormatter stringFromDate:startDate];
+    NSString *endTimeShort = [timeFormatter stringFromDate:endDate];
+
+    startTimeLabel.text = startTimeShort;
+    endTimeLabel.text = endTimeShort;
+
+    hourlyRateLabel.text = [NSString stringWithFormat:@"$%.2f/hr", [object[@"hourlyRate"] doubleValue]];
+    finalChargeLabel.text = [NSString stringWithFormat:@"$%.2f", [object[@"cost"] doubleValue]];
+
     return cell;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

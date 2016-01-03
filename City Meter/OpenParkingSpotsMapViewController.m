@@ -124,12 +124,17 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
         cell = [tableView dequeueReusableCellWithIdentifier:@"availableParkingInfoCell"];
     }
 
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     if (indexPath.row == RowIndexEmptyCell) {
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.text = @"";
         cell.detailTextLabel.text = @"";
+        cell.accessoryType = UITableViewCellAccessoryNone;
         return cell;
+    } else {
+
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
 
     cell.backgroundColor = [UIColor whiteColor];

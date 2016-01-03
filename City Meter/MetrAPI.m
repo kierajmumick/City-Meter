@@ -28,11 +28,12 @@
     NSError *stringError;
     NSString *jsonString = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlString] encoding:NSUTF8StringEncoding error:&stringError];
     if (stringError) {
-        NSLog(@"stringError: %@", stringError);
+        //NSLog(@"stringError: %@", stringError);
     }
 
     NSError *decodingError;
     NSArray *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&decodingError];
+    
     return json;
 }
 
@@ -71,11 +72,12 @@
     NSError *stringError;
     NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&stringError];
     if (stringError) {
-        NSLog(@"error: %@", stringError);
+        //NSLog(@"error: %@", stringError);
     }
 
     NSError *decodingError;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:&decodingError];
+
     return json;
 }
 
@@ -106,7 +108,7 @@
     NSError *stringError;
     NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&stringError];
     if (stringError) {
-        NSLog(@"error: %@", stringError);
+        //NSLog(@"error: %@", stringError);
     }
 
     NSError *decodingError;
