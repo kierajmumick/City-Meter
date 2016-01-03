@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DetailViewController.h"
 #import "OpenParkingSpotsMapViewController.h"
+#import "MetrAPI.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -37,6 +38,8 @@ typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
     UINavigationController *availableSpotsNavigationController = [splitViewController.viewControllers lastObject];
     availableSpotsNavigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     availableSpotsSplitViewController.delegate = self;
+
+    [MetrAPI loginWithUsername:@"kieraj@mumick.com" password:@"kieraj"];
 
     return YES;
 }

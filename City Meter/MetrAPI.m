@@ -40,7 +40,24 @@
 
 + (void)makeParkingSpotUnavailable:(ParkingSpot *)parkingSpot
 {
-    // TODO: make parking spot unavailable
+    NSString *urlString = [NSString stringWithFormat:@"%@/parking-space/occupy/%@", [MetrAPI baseURL], parkingSpot.fullID];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *urlRequest = [NSMutableURLRequest requestWithURL:url];
+    [urlRequest setHTTPMethod:@"POST"];
+    [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil] start];
+}
+
++ (void)loginWithUsername:(NSString *)username password:(NSString *)password
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@/login", [MetrAPI baseURL]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    [urlRequest setHTTPMethod:@"POST"];
+
+    NSString *bodyData = [NSString stringWithFormat:@"email=%@&password=%@", username, password];
+    [urlRequest setHTTPBody:[NSData dataWithBytes:[bodyData UTF8String] length:strlen([bodyData UTF8String])]];
+
+    NSURLConnection *urlConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:nil];
 }
 
 @end

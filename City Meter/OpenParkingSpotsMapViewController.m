@@ -9,6 +9,7 @@
 #import "OpenParkingSpotsMapViewController.h"
 #import <MapKit/MapKit.h>
 #import "ParkingSpot.h"
+#import "MetrAPI.h"
 
 @interface OpenParkingSpotsMapViewController () <MKMapViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -154,7 +155,7 @@ typedef NS_ENUM(NSUInteger, RowIndex) {
     if (indexPath.row == RowIndexBookNow) {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Confirm your parking spot" message:[NSString stringWithFormat:@"Please confirm that you are at this parking spot. Make sure you understand that you can be parked here for a maximum of %.2f hours", parkingSpot.maxNumMinutes / 60.0] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *confirmAlertAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction *_Nullable alertAction) {
-            //TODO:  make the server call to update the occupied status of this care in the background, then inform the user the spot is his
+            [MetrAPI makeParkingSpotUnavailable:parkingSpot];
             dispatch_async(dispatch_get_main_queue(), ^ {
                 [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
                 [self.navigationController.navigationController popViewControllerAnimated:YES];

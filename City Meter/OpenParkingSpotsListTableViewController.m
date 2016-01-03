@@ -32,7 +32,6 @@
 
     self.detailViewController = (OpenParkingSpotsMapViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 
-    self.objects = [[ParkingSpot generateObjects] mutableCopy];
     self.searchObjects = [self.objects mutableCopy];
 
     self.title = @"Open Spots";
@@ -41,7 +40,11 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
+    self.objects = [[ParkingSpot generateObjects] mutableCopy];
+
+
     [super viewWillAppear:animated];
+
 }
 
 - (void)didReceiveMemoryWarning {

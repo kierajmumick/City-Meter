@@ -50,6 +50,8 @@
                                                            longitude:[dictionary[@"location"][0] doubleValue]
                                                        andSpotNumber:parkSpotIDLast4
                                                     andMaxNumMinutes:[dictionary[@"hourlyRate"] intValue]];
+        object.fullID = parkSpotID;
+        object.isAvailable = [dictionary[@"isAvailable"] boolValue];
         [objects addObject:object];
     }
 

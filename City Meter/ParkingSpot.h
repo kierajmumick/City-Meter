@@ -17,6 +17,7 @@
 @property (nonatomic) BOOL isAvailable;
 @property (nonatomic, strong) NSString *spotNumber;
 @property (nonatomic) int maxNumMinutes;
+@property (nonatomic) NSString *fullID;
 
 - (NSString *)detailedDescription;
 + (NSArray *)generateObjects;
