@@ -13,6 +13,7 @@
 @interface OpenParkingSpotsMapViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UIButton *zoomButton;
 
 @end
 
@@ -24,7 +25,7 @@
 
     [self addAnnotationsToMapView];
 
-    self.mapView.mapType = MKMapTypeStandard;
+    self.mapView.mapType = MKMapTypeSatelliteFlyover;
     self.mapView.showsUserLocation = YES;
 
     self.title = @"Available Parking";
@@ -53,26 +54,17 @@
 - (void)addAnnotationsToMapView
 {
     if (self.mapView) {
-        NSArray *allPoints = [ParkingSpot generateObjects];
-
-        CLLocationCoordinate2D coordinate = ((ParkingSpot *)self.detailItem).coordinate;
-        for (ParkingSpot *spot in allPoints) {
-            if (spot.isAvailable) {
-                MKPointAnnotation *pointAnnotation = [[MKPointAnnotation alloc] init];
-                pointAnnotation.title = spot.description;
-                pointAnnotation.coordinate = spot.coordinate;
-                [self.mapView addAnnotation:pointAnnotation];
-
-                if (pointAnnotation.coordinate.latitude == coordinate.latitude && pointAnnotation.coordinate.longitude == coordinate.longitude) {
-                    [self.mapView selectAnnotation:pointAnnotation animated:YES];
-                }
-            }
-        }
-
-        MKCoordinateRegion coordinateRegion = MKCoordinateRegionMake(coordinate, MKCoordinateSpanMake(0.001, 0.001));
-        [self.mapView setRegion:coordinateRegion];
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.coordinate = ((ParkingSpot *)self.detailItem).coordinate;
+        [self.mapView addAnnotation:annotation];
+        MKMapCamera* camera = [MKMapCamera
+                               cameraLookingAtCenterCoordinate:annotation.coordinate
+                               fromEyeCoordinate:CLLocationCoordinate2DMake(1.0001 * annotation.coordinate.latitude, 1.0001 * annotation.coordinate.longitude)
+                               eyeAltitude:.00001];
+        [self.mapView setCamera:camera animated:NO];
     }
 }
+
 
 //#pragma mark - Map View Delegate
 //- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation

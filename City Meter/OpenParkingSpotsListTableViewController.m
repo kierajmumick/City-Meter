@@ -10,7 +10,7 @@
 #import "ParkingSpot.h"
 
 
-@interface OpenParkingSpotsListTableViewController ()
+@interface OpenParkingSpotsListTableViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) NSMutableArray *objects;
 
@@ -75,7 +75,7 @@
     [mapView addAnnotation:annotation];
 
     mapView.mapType = MKMapTypeSatellite;
-    mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(annotation.coordinate.latitude + 0.0001, annotation.coordinate.longitude), MKCoordinateSpanMake(0.001, 0.001));
+    mapView.region = MKCoordinateRegionMake(CLLocationCoordinate2DMake(annotation.coordinate.latitude + 0.0004, annotation.coordinate.longitude), MKCoordinateSpanMake(.001, .001));
     mapView.userInteractionEnabled = NO;
 
     return cell;
@@ -89,6 +89,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 200;
+}
+
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
+{
+    NSLog(@"%f, %f", mapView.region.span.latitudeDelta, mapView.region.span.longitudeDelta);
 }
 
 /*

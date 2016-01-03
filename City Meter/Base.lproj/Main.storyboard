@@ -3,14 +3,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController title="Master" id="RMx-3f-FxP" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="Pmd-2v-anx">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -63,8 +63,7 @@
         <scene sceneID="pkA-O6-4Vo">
             <objects>
                 <tabBarController id="gWQ-a8-w0S" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="8hT-I7-IwX">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="8hT-I7-IwX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -140,8 +139,7 @@
         <scene sceneID="r7l-gg-dq7">
             <objects>
                 <navigationController id="vC3-pB-5Vb" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" id="DjV-YW-jjY">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DjV-YW-jjY">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -166,11 +164,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VcF-Mo-umu">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="t10-tz-B7V"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="szS-IU-hL7" id="vDX-qc-Cqx"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-hk-mIk">
+                                <rect key="frame" x="20" y="341" width="40" height="30"/>
+                                <state key="normal" title="Zoom"/>
+                                <connections>
+                                    <action selector="zoomTapped:" destination="szS-IU-hL7" eventType="touchUpInside" id="HwS-At-Cxc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -179,10 +187,16 @@
                             <constraint firstItem="VcF-Mo-umu" firstAttribute="top" secondItem="7cf-1j-PAL" secondAttribute="bottom" id="ugP-Ht-Yad"/>
                             <constraint firstItem="VcF-Mo-umu" firstAttribute="leading" secondItem="uK1-TO-r1r" secondAttribute="leading" id="yI2-gH-TP9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Hwf-37-nIF"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="21s-yV-Imz"/>
                     <connections>
                         <outlet property="mapView" destination="VcF-Mo-umu" id="BaS-nA-4TI"/>
+                        <outlet property="zoomButton" destination="hIX-hk-mIk" id="F3B-UX-yn2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S7C-6L-9P7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -209,27 +223,47 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="204.5"/>
                                         </mapView>
                                         <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydM-Nh-b0f">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="kCc-o0-4Pv">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sv6-OH-vgs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="8HI-eD-57x">
-                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" tag="771" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1Q-oT-a78">
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="771" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1Q-oT-a78">
                                                                     <rect key="frame" x="8" y="11" width="584" height="21"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="qku-vI-eIQ"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" tag="773" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqR-UB-nlK">
+                                                                    <rect key="frame" x="8" y="31" width="584" height="21"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="21" id="DNd-oL-fn7"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="VqR-UB-nlK" firstAttribute="trailing" secondItem="8HI-eD-57x" secondAttribute="trailingMargin" id="K2U-xg-ch4"/>
+                                                                <constraint firstItem="e1Q-oT-a78" firstAttribute="trailing" secondItem="8HI-eD-57x" secondAttribute="trailingMargin" id="XL8-t2-bcQ"/>
+                                                                <constraint firstItem="VqR-UB-nlK" firstAttribute="bottom" secondItem="8HI-eD-57x" secondAttribute="bottomMargin" id="YhO-sS-DFo"/>
+                                                                <constraint firstItem="e1Q-oT-a78" firstAttribute="leading" secondItem="8HI-eD-57x" secondAttribute="leadingMargin" id="kvB-41-PrO"/>
+                                                                <constraint firstItem="VqR-UB-nlK" firstAttribute="leading" secondItem="8HI-eD-57x" secondAttribute="leadingMargin" id="mTt-vq-DQH"/>
+                                                                <constraint firstItem="e1Q-oT-a78" firstAttribute="top" secondItem="8HI-eD-57x" secondAttribute="topMargin" constant="3" id="nDz-TY-6O2"/>
+                                                            </constraints>
                                                         </view>
                                                         <vibrancyEffect>
-                                                            <blurEffect style="dark"/>
+                                                            <blurEffect style="extraLight"/>
                                                         </vibrancyEffect>
                                                     </visualEffectView>
                                                 </subviews>
@@ -241,9 +275,9 @@
                                                 </constraints>
                                             </view>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="GCD-Zb-8oi"/>
+                                                <constraint firstAttribute="height" constant="60" id="GCD-Zb-8oi"/>
                                             </constraints>
-                                            <blurEffect style="dark"/>
+                                            <blurEffect style="extraLight"/>
                                         </visualEffectView>
                                     </subviews>
                                     <constraints>
@@ -276,8 +310,7 @@
         <scene sceneID="eLV-dL-wJa">
             <objects>
                 <navigationController id="wng-d0-1F8" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="prO-id-yhX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="prO-id-yhX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -308,8 +341,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="icf-qU-D2y" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="AmB-un-BNL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AmB-un-BNL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -328,6 +360,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ygb-kC-B2t"/>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "DetailViewController.h"
+#import "OpenParkingSpotsMapViewController.h"
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
@@ -15,6 +16,7 @@
 
 typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
     TabBarControllerTabHistory,
+    TabBarControllerTabAvailableSpots
 };
 
 @implementation AppDelegate
@@ -25,11 +27,16 @@ typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
 
     // set up the delegates for all of the split view controllers
-    UISplitViewController *splitViewController = [[(UISplitViewController *)tabBarController viewControllers] objectAtIndex:TabBarControllerTabHistory];
+    UISplitViewController *splitViewController = (UISplitViewController *)[[tabBarController viewControllers] objectAtIndex:TabBarControllerTabHistory];
+    UISplitViewController *availableSpotsSplitViewController = (UISplitViewController *)[[tabBarController viewControllers] objectAtIndex:TabBarControllerTabAvailableSpots];
 
     UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
     navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
     splitViewController.delegate = self;
+
+    UINavigationController *availableSpotsNavigationController = [splitViewController.viewControllers lastObject];
+    availableSpotsNavigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
+    availableSpotsSplitViewController.delegate = self;
 
     return YES;
 }
@@ -62,7 +69,10 @@ typedef NS_ENUM(NSUInteger, TabBarControllerTab) {
     if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[DetailViewController class]] && ([(DetailViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
         // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
         return YES;
-    } else {
+    } else if ([secondaryViewController isKindOfClass:[UINavigationController class]] && [[(UINavigationController *)secondaryViewController topViewController] isKindOfClass:[OpenParkingSpotsMapViewController class]] && ([(OpenParkingSpotsMapViewController *)[(UINavigationController *)secondaryViewController topViewController] detailItem] == nil)) {
+        // Return YES to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+        return YES;
+    }else {
         return NO;
     }
 }
